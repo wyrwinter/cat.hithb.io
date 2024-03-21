@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>new day</title>   
+        <style>
+        @font-face {
+            font-family: 'BR';
+            src: url('Fonts/Barriecito-Regular.ttf');
+        }
+
+        .t1{
+            font-family: BR;
+            font-size: 70px;
+            color: rgb(0, 0, 0);
+            white-space: pre;
+        }
+
+        #text1{
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+
+        #text2{
+            position: absolute;
+            top: 15%;
+            left: 30%;
+        }
+
+        #text3{
+            position: absolute;
+            top: 35%;
+            left: 0;
+        }
+
+        #text4{
+            position: absolute;
+            top: 45%;
+            left: 0;
+        }
+
+        #text5{
+            position: absolute;
+            top: 60%;
+            left: 5%;
+        }
+
+        #text6{
+            position: absolute;
+            top: 70%;
+            left: 0%;
+        }
+
+        #text7{
+            position: absolute;
+            top: 80%;
+            left: 0%;
+        }
+
+        #word1{
+            font-size: 110px;
+            text-shadow: 5px -3px 5px rgb(127, 26, 26);
+            animation: shake 0.5s infinite;
+        }
+
+        #word2{
+            font-size: 110px;
+            text-shadow: 5px -3px 5px rgb(127, 26, 26);
+            animation: shake 0.5s infinite;
+        }
+
+        #word3{
+            font-size: 110px;
+            text-shadow: 5px -3px 5px rgb(127, 26, 26);
+            animation: shake 0.5s infinite;
+        }
+
+        #img1{
+            position: absolute;
+            top: 50px;
+            left: 1200px;
+            z-index: -2;
+            width: 30%;
+            height: 20%;
+            display: none;
+        }
+
+        #img2{
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 40%;
+            left: 40%;
+            z-index: -2;
+            display: none;
+        }
+
+        #img3{
+            position: absolute;
+            width: 20%;
+            height: 30%;
+            top: 70%;
+            left: 20%;
+            z-index: -2;
+            display: none;
+        }
+
+        #ball {  
+            position: absolute;  
+            width: 50px;  
+            height: 50px;  
+            background-color: rgb(127, 26, 26);  
+            border-radius: 50%;  
+            cursor: pointer;  
+        } 
+
+
+        #background-container {  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            background-size: cover;  
+            animation: blink 1s infinite;
+            z-index: -100;  
+        }  
+        
+        
+        .bg-a {  
+            background-image: url('images/px2.png');  
+        }  
+        
+        .bg-b {  
+            background-image: url('images/px1.png');  
+        }
+
+        </style>
+    </head>
+    <body>
+        <div id="text1" class="t1"> most of the time</div>
+        <div id="text2" class="t1">every day is <span id="word1" style="cursor:pointer">different</span></div>
+        <div id="text3" class="t1">Today you're determined to take a break from the daily</div>
+        <div id="text4" class="t1">grind                             and your best friend invites you </div>
+        <div id="text5" class="t1">to enjoy                                                the <span id="word2" style="cursor:pointer">sunrise</span></div>
+        <div id="text6" class="t1">over the lake</div>
+        <div id="text7" class="t1">No <span id="word3" style="cursor:pointer">coffee</span> today and you're less sleepy</div>
+
+        <img id="img1" src="images/wordimg1.png">
+        <img id="img2" src="images/wordimg2.png">
+        <img id="img3" src="images/wordimg3.png">
+
+        <div id="ball"></div>
+
+        <audio autoplay loop>  
+            <source src="audio/chimes.wav"  type="audio/wav">  
+        </audio>
+        
+        <div id="background-container"></div>
+
+
+    </body>
+    <script>
+    const clickableWord = document.getElementById('word1');  
+ 
+    clickableWord.addEventListener('click', function() {    
+        const newText = document.getElementById('img1');  
+        newText.style.display = newText.style.display === 'none' ? 'block' : 'none';  
+    });  
+
+
+
+        const clickableWord2 = document.getElementById('word3');  
+     
+    clickableWord2.addEventListener('click', function() {
+
+        const newText = document.getElementById('img3');  
+        newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
+    });  
+
+
+    const clickableWord3 = document.getElementById('word2');  
+     
+    clickableWord3.addEventListener('click', function() {
+ 
+        const newText = document.getElementById('img2');  
+  
+        newText.style.display = newText.style.display === 'none' ? 'block' : 'none';  
+    }); 
+
+
+    const ball = document.getElementById('ball');  
+    let x = 0;  
+    let y = 0;  
+    let directionX = Math.random() > 0.5 ? 1 : -1;  
+    let directionY = Math.random() > 0.5 ? 1 : -1;  
+    let speed = 0.5;  
+    
+    function moveBall() {  
+        x += directionX * speed;  
+        y += directionY * speed;  
+        
+        // 如果小球碰到屏幕边缘，改变方向  
+        if (x < 0 || x > window.innerWidth - ball.offsetWidth) {  
+            directionX *= -1;  
+        }  
+        if (y < 0 || y > window.innerHeight - ball.offsetHeight) {  
+            directionY *= -1;  
+        }  
+        
+        ball.style.left = `${x}px`;  
+        ball.style.top = `${y}px`;  
+        
+        requestAnimationFrame(moveBall); // 递归调用，使小球持续运动  
+    }  
+    
+    ball.addEventListener('click', function() {  
+        // 点击小球时，跳转到下一界面  
+        window.location.href = 'webreak.html'; // 替换为你要跳转的页面的URL  
+    });  
+    
+    moveBall(); // 开始运动
+
+    
+    let isA = true;  
+    let timerA = null;  
+    let timerB = null;  
+    
+    const backgroundContainer = document.getElementById('background-container');  
+    
+    function switchBackground() {  
+        if (isA) {  
+            backgroundContainer.classList.remove('bg-a');  
+            backgroundContainer.classList.add('bg-b');
+            clearTimeout(timerA);  
+            timerB = setTimeout(() => {  
+                isA = false;  
+                switchBackground();  
+            }, 1000); // B图显示1秒  
+        } else {  
+            backgroundContainer.classList.remove('bg-b');  
+            backgroundContainer.classList.add('bg-a');  
+            clearTimeout(timerB);  
+            timerA = setTimeout(() => {  
+                isA = true;  
+                switchBackground();  
+            }, 2000); // A图显示2秒  
+        }  
+    }  
+    
+    switchBackground();
+        
+    </script>
+</html>

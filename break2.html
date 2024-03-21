@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <style>
+            body{
+                background-image: url('Images/color1.gif');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            #aaa{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 30%;
+            }
+
+            #bbb{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+            }
+
+            @font-face {
+                font-family: 'sl';
+                src: url('./fonts/ShadowsIntoLight-Regular.ttf');
+            }
+
+
+            #word1{
+                position: absolute;
+                font-size: 150px;
+                font-family: sl;
+                top: 15%;
+                animation: scrollText 5s linear infinite;
+                background-image: linear-gradient(to right, rgb(255, 65, 81), rgb(178, 70, 255)); /* 定义渐变背景 */  
+                -webkit-background-clip: text; /* 使用背景剪辑文本 */  
+                background-clip: text; /* 使用背景剪辑文本 */                
+            }
+
+            #people1{
+                position: absolute;
+                left: 30%;
+                top: 25%;
+                width: 30%;
+                height: 70%;
+                z-index: 9;
+            }
+
+            #people2{
+                position: absolute;
+                left: 60%;
+                top: 50%;
+                z-index: 9;
+            }
+
+
+
+            #break1{
+                position: absolute;
+                left: 10%;
+                top: 45%;
+                z-index: 8;
+                opacity: 80%;
+            }
+
+        </style>
+    </head>
+    <body>
+    </body>
+        <img id="aaa" src="images/background2.gif">
+        <img id="bbb" src="images/border.png">
+
+        <img id="people1" src="images/people1.png">
+        <img id="people2" src="images/people2.png">
+        <img id="break1" src="images/break1.png">
+
+        <marquee id="word1">Do what you want.</marquee>
+
+    </body>
+    <script>
+
+    </script>
+</html>

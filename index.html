@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>a day</title>    
+    <style>
+        body{
+            background-image: url('Images/background3.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        @font-face {
+            font-family: 'KR';
+            src: url('Fonts/KdamThmorPro-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'BR';
+            src: url('Fonts/Barriecito-Regular.ttf');
+        }
+
+        #text{
+            position: absolute;
+            font-family: KR;
+            font-size: 55px;
+            color: white;
+            width: 80%;
+            top: 100px;
+            left: 10%;
+            text-shadow: 8px -5px 8px rgb(127, 26, 26);
+        }
+
+        #text2{
+            position: absolute;
+            font-family: BR;
+            font-size: 70px;
+            color: rgb(0, 0, 0);
+            background-color: white;
+            width: 100%;
+            top: 800px;
+            left: 0;
+            text-align: center;
+        }
+
+        #shake-image-1 {  
+            width: 30%; /* 设置你想要的圆形直径 */  
+            height: 50%; /* 设置你想要的圆形直径 */  
+            border-radius: 50%; /* 将边框半径设置为50%，以创建一个圆形 */  
+            background-image: url('images/colock1.gif'); /* 设置GIF图像作为背景 */  
+            background-size: cover; /* 确保GIF图像填充整个div */  
+            background-position: center; /* 确保GIF图像在div中居中显示 */
+            position: absolute;  
+            top: 400px;
+            left: 35%;
+            z-index: -1;
+        }
+
+        #shake-image-2{
+            width: 25%; 
+            height: 30%;
+            border-radius: 50%;
+            background-image: url('images/colock2.gif'); 
+            background-size: cover; 
+            background-position: center; 
+            position: absolute;  
+            top: 200px;
+            left: 5%;
+            z-index: -1;
+        }
+
+        #shake-image-3{
+            width: 40%;   
+            height: 50%;  
+            background-image: url('images/colock3.gif'); 
+            background-size: cover; 
+            background-position: center; 
+            position: absolute;  
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-top-left-radius: 100px;  
+            border-top-right-radius: 300px;  
+        }
+
+        #shake-image-4{
+            width: 20%; /* 设置你想要的圆形直径 */  
+            height: 40%; /* 设置你想要的圆形直径 */  
+            border-radius: 50%; /* 将边框半径设置为50%，以创建一个圆形 */  
+            background-image: url('images/colock4.gif'); /* 设置GIF图像作为背景 */  
+            background-size: cover; /* 确保GIF图像填充整个div */  
+            background-position: center; /* 确保GIF图像在div中居中显示 */
+            position: absolute;  
+            top: 200px;
+            right: 2%;
+            z-index: -1;
+        }
+
+        #shake-image-5{
+            width: 40%; /* 设置你想要的圆形直径 */  
+            height: 50%; /* 设置你想要的圆形直径 */  
+            background-image: url('images/colock5.gif'); /* 设置GIF图像作为背景 */  
+            background-size: cover; /* 确保GIF图像填充整个div */  
+            background-position: center; /* 确保GIF图像在div中居中显示 */
+            position: absolute;  
+            bottom: 0;
+            right: 20px;
+            z-index: -1;
+            border-top-left-radius: 400px;  
+            border-top-right-radius: 400px;  
+        }
+
+        @keyframes shake {  
+            0% { transform: translate(1px, 1px) rotate(0deg); }  
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }  
+            20% { transform: translate(-3px, 0px) rotate(1deg); }  
+            30% { transform: translate(3px, 2px) rotate(0deg); }  
+            40% { transform: translate(1px, -1px) rotate(1deg); }  
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }  
+            60% { transform: translate(-3px, 1px) rotate(0deg); }  
+            70% { transform: translate(3px, 1px) rotate(-1deg); }  
+            80% { transform: translate(-1px, -1px) rotate(1deg); }  
+            90% { transform: translate(1px, 2px) rotate(0deg); }  
+            100% { transform: translate(1px, -2px) rotate(-1deg); }  
+        }  
+            
+        .shake-image {  
+            transition: outline 0.2s;  
+            outline: none;  
+        }  
+            
+        .shake-image.shake-active {  
+            animation: shake 0.5s infinite;  
+            outline: 10px solid rgb(127, 26, 26);  
+        }
+
+    </style>  
+    </head>
+    <body>
+        <div id="text">In the morning you will prepare a cup of coffee, the shortage of rest makes you do it. The day's work will go on for a long time until late, late, late, and you have no desire to think about how the day was spent and hastily close your eyes to wait for the new day to come. After all, most of the time, every day is pretty much the same.</div>
+        <a href="new.html"><div id="text2">Did you really enjoy the day, if not, click here!</div></a>
+
+        <img class="shake-image" id="shake-image-1" src="images/colock1.gif" alt="Image 1">  
+        <audio id="audio-1" src="audio/clockh1.wav" loop></audio>  
+          
+        <img class="shake-image" id="shake-image-2" src="images/colock2.gif" alt="Image 2">  
+        <audio id="audio-2" src="audio/clockh2.mp3" loop></audio>  
+
+        <img class="shake-image" id="shake-image-3" src="images/colock3.gif" alt="Image 3">  
+        <audio id="audio-3" src="audio/clockh3.ogg" loop></audio>
+        
+        <img class="shake-image" id="shake-image-4" src="images/colock4.gif" alt="Image 4">  
+        <audio id="audio-4" src="audio/clockh4.wav" loop></audio>  
+
+        <img class="shake-image" id="shake-image-5" src="images/colock5.gif" alt="Image 5">  
+        <audio id="audio-5" src="audio/clockh5.wav" loop></audio>  
+
+
+
+    </body>
+    <script>
+        // 获取要闪烁的元素  
+        const flashingText = document.getElementById('text2');  
+        
+        // 定义两种颜色  
+        const colors = ['white', 'rgb(127, 26, 26)'];  
+        let currentIndex = 0;  
+            
+        // 设置闪烁的速度（毫秒）  
+        const flashSpeed = 100;  
+            
+        // 使用setInterval来周期性地改变背景色  
+        const intervalId = setInterval(() => {  
+            // 清除当前的背景色  
+            flashingText.style.backgroundColor = '';  
+                
+            // 设置新的背景色为数组中的下一个颜色  
+            flashingText.style.backgroundColor = colors[currentIndex];  
+                
+            // 更新数组的索引，以便在下一次迭代时切换到另一种颜色  
+            currentIndex = (currentIndex + 1) % colors.length;  
+        }, flashSpeed);  
+            
+        // 如果你想在某个时间点停止闪烁，你可以清除这个间隔  
+        // clearInterval(intervalId);
+
+
+        document.addEventListener('DOMContentLoaded', function() {  
+        // 获取所有带有shake-image类的图片元素  
+        var images = document.querySelectorAll('.shake-image');  
+        
+        images.forEach(function(image) {  
+            image.addEventListener('click', function() {  
+            // 切换shake-active类来开始或停止抖动动画  
+            this.classList.toggle('shake-active');  
+        
+            // 获取与图片关联的音频元素  
+            var audio = document.getElementById('audio-' + this.id.replace('shake-image-', ''));  
+        
+            // 根据图片的状态切换音频的播放与暂停  
+            if (this.classList.contains('shake-active')) {  
+                audio.play();  
+            } else {  
+                audio.pause();  
+            }  
+            });  
+        });  
+        });
+
+  
+showRandomText();  
+    </script>
+</html>

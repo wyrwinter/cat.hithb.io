@@ -1,0 +1,415 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Barriecito';
+            src: url('./fonts/Barriecito-Regular.ttf');
+        }
+
+        body {
+            background-image: url('Images/background2.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        #eye1 {
+            bottom: 30%;
+            right: 6%;
+            position: absolute;
+            height: 18%;
+            opacity: 70%;
+            z-index: -1;
+        }
+
+        #eye2 {
+            left: 35%;
+            bottom: 0;
+            position: absolute;
+            opacity: 90%;
+            width: 30%;
+            z-index: 1;
+        }
+
+        #eye3 {
+            top: 30%;
+            left: 13%;
+            position: absolute;
+            opacity: 90%;
+            height: 11%;
+            z-index: -1;
+        }
+
+        #eye4 {
+            top: 10%;
+            left: 20%;
+            position: absolute;
+            opacity: 80%;
+            height: 18%;
+            z-index: -1;
+        }
+
+        #eye5 {
+            bottom: 37%;
+            left: 0;
+            position: absolute;
+            opacity: 70%;
+            height: 20%;
+            z-index: -1;
+        }
+
+        #eye6 {
+            bottom: 5%;
+            left: 8%;
+            position: absolute;
+            opacity: 60%;
+            height: 30%;
+            z-index: -1;
+        }
+
+        #eye7 {
+            bottom: 48%;
+            right: 8%;
+            position: absolute;
+            opacity: 60%;
+            height: 15%;
+            z-index: -1;
+        }
+
+        #mouth5 {
+            position: absolute;
+            top: 23%;
+            left: 25%;
+            height: 37%;
+            z-index: 2;
+        }
+
+        #mouth4 {
+            position: absolute;
+            top: 1%;
+            left: 39%;
+            height: 40%;
+            z-index: 2;
+        }
+
+
+        #mouth3 {
+            position: absolute;
+            bottom: 6%;
+            right: 24%;
+            height: 34%;
+            z-index: 2;
+        }
+
+        #mouth2 {
+            position: absolute;
+            left: 18%;
+            bottom: 7%;
+            height: 36%;
+            z-index: 2;
+        }
+
+        #mouth1 {
+            position: absolute;
+            top: 30%;
+            right: 24%;
+            height: 36%;
+            z-index: 2;
+        }
+
+
+        #hand1 {
+            position: absolute;
+            bottom: -8%;
+            right: 35%;
+            height: 46%;
+            z-index: 3;
+        }
+
+        #hand2 {
+            position: absolute;
+            top: -7%;
+            left: -5%;
+            height: 42%;
+            z-index: 3;
+        }
+
+        #hand3 {
+            position: absolute;
+            top: 45%;
+            left: -5%;
+            height: 42%;
+            z-index: 3;
+        }
+
+        #hand4 {
+            position: absolute;
+            right: -5%;
+            top: -5%;
+            height: 50%;
+            z-index: 3;
+        }
+
+        #hand5 {
+            position: absolute;
+            right: 39%;
+            top: -5%;
+            height: 50%;
+            z-index: 3;
+        }
+
+        #hand6 {
+            position: absolute;
+            right: -2%;
+            bottom: -10%;
+            height: 60%;
+            z-index: 3;
+        }
+
+        #text1 {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 44%;
+            width: 100%;
+            text-align: center;
+            font-family: 'Barriecito';
+            z-index: 4;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 40px;
+            animation: textAnimation 2s infinite;
+        }
+
+        #text2 {
+            display: none;
+            position: absolute;
+            right: 53%;
+            top: 53%;
+            font-family: 'Barriecito';
+            z-index: 4;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 36px;
+            animation: textAnimation 2s infinite;
+            animation-delay: 0.2s;
+        }
+
+        #text3 {
+            display: none;
+            position: absolute;
+            left: 53%;
+            top: 53%;
+            font-family: 'Barriecito';
+            z-index: 4;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 36px;
+            animation: textAnimation 2s infinite;
+            animation-delay: 0.4s;
+        }
+
+        #text4 {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 60%;
+            width: 100%;
+            text-align: center;
+            font-family: 'Barriecito';
+            z-index: 4;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 40px;
+            animation: textAnimation 2s infinite;
+            animation-delay: 0.6s;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(127, 26, 26);
+            border-radius: 50%;
+            cursor: pointer;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, 50%);
+            z-index: 9;
+        }
+
+        .next {
+            cursor: pointer;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            background: rgb(127, 26, 26);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 26px;
+            padding: 12px 22px;
+            border-radius: 10px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 9;
+        }
+
+        .anim {
+            animation: scaleAnimation 1.2s infinite;
+        }
+
+        .show {
+            animation: showAnimation 3s forwards;
+        }
+
+        @keyframes scaleAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            /* 放大 */
+            100% {
+                transform: scale(1);
+            }
+
+            /* 缩小回原始大小 */
+        }
+
+        @keyframes showAnimation {
+            0% {
+                visibility: visible;
+                opacity: 0;
+            }
+
+            30% {
+                visibility: visible;
+                opacity: 0;
+            }
+
+            100% {
+                visibility: visible;
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes textAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <img id="eye1" src="images/eye1.png">
+    <img id="eye2" src="images/eye2.png">
+    <img id="eye3" src="images/eye3.png">
+    <img id="eye4" src="images/eye4.png">
+    <img id="eye5" src="images/eye5.png">
+    <img id="eye6" src="images/eye6.png">
+    <img id="eye7" src="images/eye3.png">
+
+    <img id="mouth1" src="images/mouth1.png">
+    <img id="mouth2" src="images/mouth2.png">
+    <img id="mouth3" src="images/mouth3.png">
+    <img id="mouth4" src="images/mouth4.png">
+    <img id="mouth5" src="images/mouth5.png">
+
+    <img id="hand1" src="images/hand1.png">
+    <img id="hand2" src="images/hand2.png">
+    <img id="hand3" src="images/hand3.png">
+    <img id="hand4" src="images/hand4.png">
+    <img id="hand5" src="images/hand5.png">
+    <img id="hand6" src="images/hand6.png">
+
+    <div id="text1">wrong</div>
+    <div id="text2">wrong</div>
+    <div id="text3">wrong</div>
+    <div id="text4">wrong</div>
+
+    <div class="ball" id="ball"></div>
+
+    <div class="next" id="next">Next</div>
+
+    <script>
+        let ball = document.getElementById('ball');
+        let next = document.getElementById('next');
+        let mouth1 = document.getElementById('mouth1');
+        let mouth2 = document.getElementById('mouth2');
+        let mouth3 = document.getElementById('mouth3');
+        let mouth4 = document.getElementById('mouth4');
+        let mouth5 = document.getElementById('mouth5');
+        let hand1 = document.getElementById('hand1');
+        let hand2 = document.getElementById('hand2');
+        let hand3 = document.getElementById('hand3');
+        let hand4 = document.getElementById('hand4');
+        let hand5 = document.getElementById('hand5');
+        let hand6 = document.getElementById('hand6');
+        let text1 = document.getElementById('text1');
+        let text2 = document.getElementById('text2');
+        let Text3 = document.getElementById('text3');
+        let text4 = document.getElementById('text4');
+        let count = 1;
+
+        // 创建音频
+        let audio = new Audio();
+        audio.loop = true;
+
+        ball.onclick = function () {
+            if (count == 1) {
+                mouth1.classList.add('anim');
+                mouth2.classList.add('anim');
+                mouth3.classList.add('anim');
+                mouth4.classList.add('anim');
+                mouth5.classList.add('anim');
+
+                // 设置第一段音乐
+                audio.src = './audio/hear.wav';
+                // 播放第一段音乐
+                audio.play();
+            } else if (count == 2) {
+                hand1.classList.add('anim');
+                hand2.classList.add('anim');
+                hand3.classList.add('anim');
+                hand4.classList.add('anim');
+                hand5.classList.add('anim');
+                hand6.classList.add('anim');
+
+                // 文字显示
+                text1.style.display = 'block';
+                text2.style.display = 'block';
+                text3.style.display = 'block';
+                text4.style.display = 'block';
+
+                // 跳转按钮显示
+                next.classList.add('show');
+
+                // 设置第二段音乐
+                audio.src = './audio/hear.wav';
+                // 播放第二段音乐
+                audio.play();
+            }
+            count++;
+        }
+
+        next.onclick = function () {
+            // 点击跳转下一页
+            location.href = 'break2.html';
+        }
+
+    </script>
+
+</html>

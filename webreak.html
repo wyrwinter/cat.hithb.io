@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            position: relative;
+            background-image: url('Images/background4.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 0;
+            margin: 0;
+        }
+
+        .flex {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #heart {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+
+        .image1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .image1 img {
+            max-width: 30vw;
+            animation-duration: 100ms;
+        }
+
+        .image2 {
+            position: fixed;
+            top: 0;
+            right: 3%;
+        }
+
+        .image2 img {
+            max-width: 26vw;
+            animation-duration: 200ms;
+        }
+
+        .image3 {
+            position: fixed;
+            bottom: 10%;
+            left: 2%;
+            transform: rotate(20deg);
+        }
+
+        .image3 img {
+            max-width: 30vw;
+            animation-duration: 300ms;
+        }
+
+        .image4 {
+            position: fixed;
+            bottom: 2%;
+            right: 15%;
+            transform: rotate(20deg);
+        }
+
+        .image4 img {
+            max-height: 60vh;
+            animation-duration: 400ms;
+        }
+
+
+        .word1 {
+            position: fixed;
+            top: 35%;
+            left: 30%;
+        }
+
+        .word1 img {
+            max-width: 18vw;
+            animation-duration: 50ms;
+        }
+
+        .word2 {
+            position: fixed;
+            top: 25%;
+            right: 30%;
+        }
+
+        .word2 img {
+            max-width: 22vw;
+            animation-duration: 150ms;
+        }
+
+        .word3 {
+            position: fixed;
+            bottom: 20%;
+            left: 35%;
+        }
+
+        .word3 img {
+            max-width: 18vw;
+            animation-duration: 250ms;
+        }
+
+        .word4 {
+            position: fixed;
+            bottom: 35%;
+            right: 32%;
+        }
+
+        .word4 img {
+            max-width: 30vw;
+            animation-duration: 350ms;
+        }
+
+        .draggable {
+            position: absolute;
+            top: 6%;
+            left: 48%;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(145, 36, 36);
+            border-radius: 50%;
+            position: absolute;
+            cursor: move;
+            user-select: none;
+            z-index: 9;
+        }
+
+        .shake-fade {
+            opacity: 1;
+            transition: opacity 2s;
+        }
+
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        .fade-out {
+            opacity: 0 ;
+            transition: opacity 2s;
+        }
+
+        #bimage1{
+            width: 50%;
+            height: 70%;
+            right: 0;
+            top: 0;
+            position: absolute;
+            opacity: 50%;
+            z-index: -1;
+        }
+
+        #bimage2{
+            width: 50%;
+            height: 70%;
+            left: 0;
+            top: 30%;
+            position: absolute;
+            opacity: 40%;
+            z-index: -1;
+        }
+
+
+        #bimage3{
+            width: 40%;
+            height: 20%;
+            left: 30%;
+            top: 0;
+            position: absolute;
+            opacity: 40%;
+            z-index: -2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <img id="heart" src="images/drag.png">
+    </div>
+
+    <div id="ball" class="draggable"></div>
+    
+    <div class="image1">
+        <img class="shake" src="images/k1.png">
+    </div>
+    <div class="image2">
+        <img class="shake" src="images/w1.png">
+    </div>
+    <div class="image3">
+        <img class="shake" src="images/j1.png">
+    </div>
+    <div class="image4">
+        <img class="shake" src="images/m1.png">
+    </div>
+    <div class="word1">
+        <img class="shake" src="images/kword1.png">
+    </div>
+    <div class="word2">
+        <img class="shake" src="images/kword2.png">
+    </div>
+    <div class="word3">
+        <img class="shake" src="images/kword3.png">
+    </div>
+    <div class="word4">
+        <img class="shake" src="images/kword4.png">
+    </div>
+
+    <img id="bimage1" src="images/bimage1.gif">
+    <img id="bimage2" src="images/bimage2.gif">
+    <img id="bimage3" src="images/bimage3.gif">
+
+    <audio autoplay loop>  
+        <source src="audio/pp.wav"  type="audio/wav">  
+    </audio>
+</body>
+<script>
+
+    const ball = document.getElementById('ball');
+    const image1 = document.querySelector('.image1 img');
+    const image2 = document.querySelector('.image2 img');
+    const image3 = document.querySelector('.image3 img');
+    const image4 = document.querySelector('.image4 img');
+    const word1 = document.querySelector('.word1 img');
+    const word2 = document.querySelector('.word2 img');
+    const word3 = document.querySelector('.word3 img');
+    const word4 = document.querySelector('.word4 img');
+    const ripSound = document.getElementById('ripSound');
+    let isDragging = false;
+    let currentX, currentY, initialX, initialY, offsetX = 0, offsetY = 0;
+
+    let isPlay = false;
+    let timer = null;
+
+    let play = [false, false, false, false];
+    let image = [image1, image2, image3, image4];
+    let word = [word1, word2, word3, word4];
+
+    // 开始播放图片
+    function playImgs(icur) {
+        let index = 1;
+        timer = setInterval(() => {
+            index++;
+            image[icur].src = image[icur].src.replace(/\d\.png/, `${index}.png`);
+            if (index >= 3) {
+                isPlay = false;
+                play[icur] = true;
+                word[icur].classList.add('fade-out');
+                if(play.find(i => i === false) === undefined){
+                    ball.classList.add('fade-out');
+                    setTimeout( () => {
+                        location.href = 'break1.html';
+                    }, 2000) // 2秒后跳转
+                }
+                clearInterval(timer);
+            }
+        }, 1000); // 1秒播放一次
+    }
+
+    ball.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        initialX = e.clientX - offsetX;
+        initialY = e.clientY - offsetY;
+        if (e.target === ball) {
+            ball.style.cursor = 'grabbing';
+        }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            offsetX = e.clientX - initialX;
+            offsetY = e.clientY - initialY;
+            setTranslate(offsetX, offsetY, ball);
+
+            if (!isPlay) {
+                if (!play[0] && isOverText(e.clientX, e.clientY, word[0])) {
+                    isPlay = true;
+                    playImgs(0);
+                    ripSound.play();
+                }else if (!play[1] && isOverText(e.clientX, e.clientY, word[1])) {
+                    isPlay = true;
+                    playImgs(1);
+                    ripSound.play();
+                }else if (!play[2] && isOverText(e.clientX, e.clientY, word[2])) {
+                    isPlay = true;
+                    playImgs(2);
+                    ripSound.play();
+                }else if (!play[3] && isOverText(e.clientX, e.clientY, word[3])) {
+                    isPlay = true;
+                    playImgs(3);
+                    ripSound.play();
+                }
+            }
+        }
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            ball.style.cursor = 'grab';
+        }
+    });
+
+    window.addEventListener('mouseleave', () => {
+        isDragging = false;
+        ball.style.cursor = 'grab';
+    });
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
+    function isOverText(x, y, element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            x > rect.left &&
+            x < rect.right &&
+            y > rect.top &&
+            y < rect.bottom
+        );
+    }  
+</script>
+
+</html>
